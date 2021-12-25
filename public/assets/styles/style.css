@@ -840,7 +840,7 @@ button:focus {
   }
 }
 .header__photo-img {
-  height: 100%;
+  /* height: 100%;  */
   width: 100%;
 }
 .header__base-info {
@@ -1159,7 +1159,7 @@ button:focus {
     width: calc(20% - 0rem);
   }
 }
-.nav__item a {
+.nav__item div {
   background-color: #F7F9FA;
   border-radius: 1.25rem;
   color: #5E6E80;
@@ -1174,46 +1174,46 @@ button:focus {
   text-decoration: none;
   transition: all 0s;
 }
-.nav__item a > * {
+.nav__item div > * {
   min-width: 0;
 }
-.nav__item a:hover {
+.nav__item div:hover {
   color: #304CFD;
 }
 @media only screen and (max-width: 1200px) {
-  .nav__item a {
+  .nav__item div {
     border-radius: 1rem;
     font-size: 0.75rem;
   }
 }
 @media only screen and (max-width: 768px) {
-  .nav__item a {
+  .nav__item div {
     font-size: 0.6875rem;
   }
 }
 @media only screen and (max-width: 580px) {
-  .nav__item a {
+  .nav__item div {
     background-color: transparent;
   }
 }
-.nav__item a.active {
+.nav__item div.active {
   background-image: linear-gradient(142.17deg, #3086FF 6.66%, #304CFD 91.48%);
   box-shadow: inset -0.25rem -0.25rem 0.3125rem rgba(0, 0, 0, 0.1), inset 0.25rem 0.25rem 0.3125rem rgba(255, 255, 255, 0.23);
   color: #fff;
 }
-.nav__item a.active:hover {
+.nav__item div.active:hover {
   color: #fff;
 }
 @media only screen and (max-width: 580px) {
-  .nav__item a.active {
+  .nav__item div.active {
     background-image: none;
     box-shadow: none;
     color: #304CFD;
   }
-  .nav__item a.active:hover {
+  .nav__item div.active:hover {
     color: #304CFD;
   }
-  .nav__item a.active::before {
+  .nav__item div.active::before {
     content: '';
     background-color: #304CFD;
     height: 0.125rem;
