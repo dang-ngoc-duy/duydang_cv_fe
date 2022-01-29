@@ -1,25 +1,26 @@
 import { ReactNode } from 'react';
 
 export interface INavItem {
-    status: boolean;
+    id: string;
     icon: ReactNode;
     label: string;
 }
 export interface INavItemProps {
+    activeId?: string;
     navItem: INavItem;
-    onClick?(value: string): void;
+    onClick?(currItem: INavItem): void;
 }
 
 const NavItem: React.FC<INavItemProps> = (props) => {
-    const { navItem, onClick } = props;
+    const { activeId, navItem, onClick } = props;
 
     const handleItemClick = () => {
-        onClick && onClick(navItem.label)
+        onClick && onClick(navItem)
     }
     
     return (
         <div className='nav__item'>
-            <div onClick={handleItemClick} className={navItem.status ? 'active' : undefined}>
+            <div onClick={handleItemClick} className={activeId === navItem.id ? 'active' : undefined}>
                 {navItem.icon}
                 {navItem.label}
             </div>

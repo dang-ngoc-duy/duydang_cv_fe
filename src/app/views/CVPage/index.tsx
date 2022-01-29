@@ -8,41 +8,42 @@ import Sidebar from 'app/components/includes/Sidebar';
 
 import Intro from 'app/components/layout/Intro';
 import { INavItem } from 'app/components/base/NavItem';
+// import { INavItem } from 'app/components/base/NavItem';
 
 
 const CVPage: React.FC = () => {
+    const [currSelect, setCurrSelect] = useState<string>('1');
 
     let navItemList = [
         {
-            status: true,
+            id: '1',
             icon: <FaUser size={25} />,
             label: 'About',
         },
         {
-            status: false,
+            id: '2',
             icon: <FaUser size={25} />,
             label: 'Duy1',
         },
         {
-            status: false,
+            id: '3',
             icon: <FaUser size={25} />,
             label: 'Duy2',
         },
         {
-            status: false,
+            id: '4',
             icon: <FaUser size={25} />,
             label: 'Duy3',
         },
         {
-            status: false,
+            id: '5',
             icon: <FaUser size={25} />,
             label: 'Duy4',
         },
     ]
 
-    const handleMenuClick = (value: string) => {
-        let currItem = navItemList.find(item => item.label === value);
-        console.log('🍕 ~ file: index.tsx ~ line 45 ~ handleMenuClick ~ currItem', currItem)
+    const handleMenuClick = (currItem: INavItem) => {
+        setCurrSelect(currItem.id);
     }
 
     return (
@@ -53,6 +54,7 @@ const CVPage: React.FC = () => {
                     <Sidebar
                         onMenuClick={handleMenuClick}
                         navItemList={navItemList}
+                        activeId={currSelect}
                     />
                     <div className='col-12 col-md-12 col-lg-10'>
                         <Content>
