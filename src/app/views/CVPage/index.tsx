@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaBlog, FaFileAlt, FaImages, FaUser } from 'react-icons/fa';
 import { Route, Routes, useNavigate } from 'react-router';
 
@@ -50,6 +50,10 @@ const CVPage: React.FC = () => {
         setCurrSelect(currItem.id);
         navigate('/' + currItem.label);
     }
+
+    useEffect(()=>{
+        navigate('/about');
+    },[])
 
     return (
         <>
