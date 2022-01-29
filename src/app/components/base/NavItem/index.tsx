@@ -1,4 +1,7 @@
 import { ReactNode } from 'react';
+import clsx from 'clsx';
+
+import NavItemStyles from './style';
 
 export interface INavItem {
     id: string;
@@ -12,6 +15,8 @@ export interface INavItemProps {
 }
 
 const NavItem: React.FC<INavItemProps> = (props) => {
+    const classes = NavItemStyles();
+
     const { activeId, navItem, onClick } = props;
 
     const handleItemClick = () => {
@@ -19,10 +24,10 @@ const NavItem: React.FC<INavItemProps> = (props) => {
     }
     
     return (
-        <div className='nav__item'>
+        <div className={clsx(classes.NavItem, 'nav__item')}>
             <div onClick={handleItemClick} className={activeId === navItem.id ? 'active' : undefined}>
                 {navItem.icon}
-                {navItem.label}
+                <span>{navItem.label}</span>
             </div>
         </div>
     );

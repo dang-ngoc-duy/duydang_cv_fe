@@ -6,7 +6,7 @@ const App: React.FC = () => {
   return (
     <BrowserRouter basename='/'>
       <Routes>
-        <Route path='/' element={<CVPage/>}/>
+        <Route path='/*' element={<CVPage/>}/>
       </Routes>
     </BrowserRouter>
   );

@@ -1,49 +1,54 @@
-import { useEffect, useState } from 'react';
-import { FaUser } from 'react-icons/fa';
+import { useState } from 'react';
+import { FaBlog, FaFileAlt, FaImages, FaUser } from 'react-icons/fa';
+import { Route, Routes, useNavigate } from 'react-router';
 
-import Content from 'app/components/layout/ContentWraper';
+import { INavItem } from 'app/components/base/NavItem';
+import ContentWraper from 'app/components/layout/ContentWraper';
 import Footer from 'app/components/includes/Footer';
 import Header from 'app/components/includes/Header';
 import Sidebar from 'app/components/includes/Sidebar';
 
-import Intro from 'app/components/layout/Intro';
-import { INavItem } from 'app/components/base/NavItem';
-// import { INavItem } from 'app/components/base/NavItem';
-
+import About from './About';
+import Resume from './Resume';
+import Blog from './Blog';
+import Photo from './Photo';
 
 const CVPage: React.FC = () => {
     const [currSelect, setCurrSelect] = useState<string>('1');
+
+    const navigate = useNavigate();
 
     let navItemList = [
         {
             id: '1',
             icon: <FaUser size={25} />,
-            label: 'About',
+            label: 'about',
         },
         {
             id: '2',
-            icon: <FaUser size={25} />,
-            label: 'Duy1',
+            icon: <FaFileAlt size={25} />,
+            label: 'resume',
         },
         {
             id: '3',
-            icon: <FaUser size={25} />,
-            label: 'Duy2',
+            icon: <FaBlog size={25} />,
+            label: 'blog',
         },
         {
             id: '4',
-            icon: <FaUser size={25} />,
-            label: 'Duy3',
+            icon: <FaImages size={25} />,
+            label: 'photo',
         },
-        {
-            id: '5',
-            icon: <FaUser size={25} />,
-            label: 'Duy4',
-        },
+        // {
+        //     id: '5',
+        //     icon: <FaUser size={25} />,
+        //     label: 'contract',
+        // },
     ]
 
     const handleMenuClick = (currItem: INavItem) => {
         setCurrSelect(currItem.id);
+        navigate('/' + currItem.label);
     }
 
     return (
@@ -57,38 +62,14 @@ const CVPage: React.FC = () => {
                         activeId={currSelect}
                     />
                     <div className='col-12 col-md-12 col-lg-10'>
-                        <Content>
-                            <Intro title='About Me'>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                                    It has survived not only five centuries, but also the leap into electronic typesetting, 
-                                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-                                    and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                                </p>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                </p>
-                            </Intro>
-                            <Intro title='Ahaha'>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                                    It has survived not only five centuries, but also the leap into electronic typesetting, 
-                                    remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-                                    and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                                </p>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                </p>
-                            </Intro>
-                        </Content>
+                        <ContentWraper>
+                            <Routes>
+                                <Route path='/about' element={<About/>}/>
+                                <Route path='/resume' element={<Resume/>}/>
+                                <Route path='/blog' element={<Blog/>}/>
+                                <Route path='/photo' element={<Photo/>}/>
+                            </Routes> 
+                        </ContentWraper>
                         <Footer>© 2021 DuyDang</Footer>
                     </div>
                 </div>
