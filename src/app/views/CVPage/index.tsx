@@ -53,6 +53,7 @@ const CVPage: React.FC = () => {
 
     useEffect(()=>{
         navigate('/about');
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     return (

@@ -1,5 +1,4 @@
 import NavItem, { INavItem } from "app/components/base/NavItem";
-import { useEffect } from "react";
 export interface ISidebarProps {
     activeId?: string;
     navItemList?: INavItem[];
