@@ -7,7 +7,6 @@ export interface ICarouselProps {
 
 const Carousel: React.FC<ICarouselProps> = (props) => {
     const { variant, itemList } = props;
-    console.log(itemList)
 
     const renderFillCarousel = () => (
         <div className="swiper-container js-carousel-review">
