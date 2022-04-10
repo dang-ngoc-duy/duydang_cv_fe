@@ -1,8 +1,19 @@
-export interface ZingDataAlbum {
+import { IError } from "./api";
+
+export interface ZingDataAlbumState {
+    fetching: boolean;
+    fetched: boolean;
+    data: ZingDataAlbum;
+    error: IError[];
+}
+export interface ZingDataAlbumResponse {
     items:  Item[];
     is_vip: boolean;
     info:   Info;
     ip:     string;
+}
+export interface ZingDataAlbum {
+    data: ZingDataAlbumResponse;
 }
 
 export interface Info {
@@ -54,3 +65,4 @@ export interface PurpleArtist {
     cover:     string;
     thumbnail: string;
 }
+

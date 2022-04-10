@@ -1,4 +1,12 @@
-export interface ZingDataAudio {
+import { IError } from "./api";
+
+export interface ZingDataAudioState {
+    fetching: boolean;
+    fetched: boolean;
+    data: ZingDataAudio;
+    error: IError[];
+}
+export interface ZingDataAudioResponse {
     id:            string;
     name:          string;
     title:         string;
@@ -21,6 +29,9 @@ export interface ZingDataAudio {
     ads:           boolean;
     is_vip:        boolean;
     ip:            string;
+}
+export interface ZingDataAudio {
+    data: ZingDataAudioResponse;
 }
 
 export interface Album {
