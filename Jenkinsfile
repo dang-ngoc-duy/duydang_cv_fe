@@ -31,7 +31,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'ssh <user>@<host> "docker pull $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG && docker stop ddcv-fe-container && docker rm ddcv-fe-container && docker run -d -p 80:80 --name ddcv-fe-container $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG"'
+                sh 'ssh root@loopdu.com "docker pull $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG && docker stop ddcv-fe-container && docker rm ddcv-fe-container && docker run -d -p 80:80 --name ddcv-fe-container $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG"'
             }
         }
     }
