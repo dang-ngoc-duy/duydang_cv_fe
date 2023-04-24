@@ -6,8 +6,7 @@ pipeline {
             steps {
                 sh 'git checkout develop && git pull origin develop'
                 sh 'docker run --rm -v $(pwd):/app -w /app docker:stable docker build -t duydangit/ddcv-fe .'
-                // sh 'docker build -t duydangit/ddcv-fe .'
-                sh 'docker stop ddcv-fe-container && docker rm ddcv-fe-container'
+                sh 'docker stop ddcv-fe-container || true && docker rm ddcv-fe-container || true'
                 sh 'docker run -d -p 80:80 --name ddcv-fe-container duydangit/ddcv-fe'
             }
         }
