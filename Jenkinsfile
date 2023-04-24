@@ -1,8 +1,8 @@
 pipeline {
     agent {
-        docker {
-            image 'docker:dind'
-            args '-u root'
+        dockerfile {
+            filename 'Dockerfile'
+            dir '.'
         }
     }
 
