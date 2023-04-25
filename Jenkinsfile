@@ -5,7 +5,6 @@ pipeline {
         DOCKER_IMAGE_NAME = 'duydangit/ddcv-fe'
         DOCKER_IMAGE_TAG = 'latest'
         DOCKER_REGISTRY_URL = 'https://index.docker.io/v1/'
-        test = 'dfdf'
     }
     agent any
     stages {
