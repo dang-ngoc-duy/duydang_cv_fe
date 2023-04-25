@@ -13,7 +13,7 @@ WORKDIR /app
 COPY ${workdir}/package.json /app/
 
 # Cài đặt các thư viện node liên quan.
-RUN npm install --production
+RUN npm install --verbose --production
 
 # Copy project vào trong workdir của node.
 COPY ${workdir}/ /app/
