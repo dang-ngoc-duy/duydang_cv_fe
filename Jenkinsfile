@@ -16,7 +16,7 @@ pipeline {
                     $class: 'GitSCM',
                     branches: [[name: 'develop']],
                     userRemoteConfigs: [[
-                        credentialsId: 'login github',
+                        credentialsId: 'github-credentials',
                         url: 'https://github.com/duydangit/duydang_cv_fe.git'
                     ]]
                 ])
