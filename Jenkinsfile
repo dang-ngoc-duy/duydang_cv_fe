@@ -8,14 +8,13 @@ pipeline {
     }
     agent any
     stages {
-        stage('Git Clone') {
+        stage('Checkout') {
             steps {
-                git branch: 'main', credentialsId: 'login github', url: 'https://github.com/my-user/my-repo.git'
-            }
-        }
-        stage('Declarative: Checkout SCM') {
-            steps {
-                checkout scm
+                checkout([
+                    $class: 'GitSCM', 
+                    branches: [[name: 'develop']],
+                    userRemoteConfigs: [[credentialsId: 'login github', url: 'git@github.com:duydangit/duydang_cv_fe.git']]
+                ])
             }
         }
         //stage('Cloning Git') {
