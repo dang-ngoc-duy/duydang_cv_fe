@@ -12,10 +12,16 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'develop', credentialsId: 'login github', url: 'https://github.com/duydangit/duydang_cv_fe.git'
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: 'develop']],
+                    userRemoteConfigs: [[
+                        credentialsId: 'login github',
+                        url: 'https://github.com/duydangit/duydang_cv_fe.git'
+                    ]]
+                ])
             }
         }
-
         stage('Build Docker image') {
             steps {
                 script {
