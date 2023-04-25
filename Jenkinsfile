@@ -8,6 +8,16 @@ pipeline {
     }
     agent any
     stages {
+        stage('Git Clone') {
+            steps {
+                git branch: 'main', credentialsId: 'login github', url: 'https://github.com/my-user/my-repo.git'
+            }
+        }
+        stage('Declarative: Checkout SCM') {
+            steps {
+                checkout scm
+            }
+        }
         //stage('Cloning Git') {
         //    steps {
         //        sh 'cd duydang_cv_fe'
