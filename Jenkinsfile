@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        DOCKER_HUB_USERNAME = credentials('docker-hub').username
-        DOCKER_HUB_PASSWORD = credentials('docker-hub').password
+        DOCKER_HUB_USERNAME = credentials("docker-hub").username
+        DOCKER_HUB_PASSWORD = credentials("docker-hub").password
         DOCKER_IMAGE_NAME = 'duydangit/ddcv-fe'
         DOCKER_IMAGE_TAG = 'latest'
         DOCKER_REGISTRY_URL = 'https://index.docker.io/v1/'
