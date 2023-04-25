@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/duydangit/duydang_cv_fe.git'
+                checkout scm
             }
         }
         stage('Build') {
