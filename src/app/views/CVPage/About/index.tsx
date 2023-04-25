@@ -4,7 +4,7 @@ const About: React.FC = () => {
     return (
         <>
             <Intro title='About Me'>
-                <p> TESST Jenkins nè he
+                <p> TESST Jenkins nè he nefff
                     Lorem Ipsum is simply dummy text of the printing and
                     typesetting industry. Lorem Ipsum has been the industry's
                     standard dummy text ever since the 1500s, when an unknown
