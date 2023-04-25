@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout scm
+                git branch: 'develop', credentialsId: 'ssh-github-key', url: 'https://github.com/duydangit/duydang_cv_fe'
             }
         }
         stage('Build') {
