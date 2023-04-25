@@ -8,8 +8,9 @@ pipeline {
     stages {
         stage('Cloning Git') {
             steps {
-                git([url: 'https://github.com/duydangit/duydang_cv_fe.git', branch: 'develop', credentialsId: 'docker-hub'])
-
+                sshagent(['ssh-github-key']) {
+                    git([url: 'git@github.com:duydangit/duydang_cv_fe.git', branch: 'develop'])
+                }
             }
         }
         stage('Building image') {
