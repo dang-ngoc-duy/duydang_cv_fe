@@ -1,16 +1,14 @@
 pipeline {
     environment {
         imagename = "duydangit/ddcv-fe"
-        registryCredential = 'duydangit'
+        registryCredential = 'docker-hub'
         dockerImage = ''
-        DOCKER_HUB_USERNAME = "${credentials('docker-hub').username}"
-        DOCKER_HUB_PASSWORD = "${credentials('docker-hub').password}"
     }
     agent any
     stages {
         stage('Cloning Git') {
             steps {
-                git([url: 'https://github.com/duydangit/duydang_cv_fe.git', branch: 'develop', credentialsId: 'duydangit'])
+                git([url: 'https://github.com/duydangit/duydang_cv_fe.git', branch: 'develop', credentialsId: 'docker-hub'])
 
             }
         }
