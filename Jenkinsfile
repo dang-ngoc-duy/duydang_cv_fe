@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'git clone https://github.com/duydangit/duydang_cv_fe.git'
                 sh 'git checkout develop && git pull origin develop'
                 sh 'docker run --rm -v $(pwd):/app -w /app docker:stable docker build -t duydangit/ddcv-fe .'
                 sh 'docker stop ddcv-fe-container || true && docker rm ddcv-fe-container || true'
