@@ -43,7 +43,7 @@
     "eject": "react-scripts eject",
     "rn:unix": "mv build build-dev",
     "clean:unix": "rm -rf build-dev",
-    "build:dev:unix": "npm run build && npm run clean:unix && npm run rn:unix"
+    "build:dev:unix": "npm run build -- --max-old-space-size=1024 && npm run clean:unix && npm run rn:unix"
   },
   "eslintConfig": {
     "extends": [
