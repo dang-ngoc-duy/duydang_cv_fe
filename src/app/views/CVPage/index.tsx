@@ -75,7 +75,7 @@ const CVPage: React.FC = () => {
                                 <Route path='/photo' element={<Photo/>}/>
                             </Routes> 
                         </ContentWraper>
-                        <Footer>© 2021 DuyDang</Footer>
+                        <Footer>© 2021 Justin Dang</Footer>
                     </div>
                 </div>
             </div>
