@@ -8,6 +8,12 @@ pipeline {
     }
 
     stages {
+        stage('Clone repository') {
+            steps {
+                sh 'git clone https://github.com/duydangit/duydang_cv_fe.git'
+                sh 'cd ./duydang_cv_fe'
+            }
+        }
         stage('Checkout') {
             steps {
                 checkout([
