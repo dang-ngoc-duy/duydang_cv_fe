@@ -9,14 +9,21 @@ LABEL description="Deploy DDCV-FE"
 # Khái báo workdir trong node.
 WORKDIR /app
 
-# Copy package.json vào trong workdir của node.
-COPY ${workdir}/package.json /app/
+# Copy package.json và package-lock.json vào trong workdir của node.
+# COPY ${workdir}/package.json /app/
+COPY ${workdir}/package.json /app/package.json
+COPY ${workdir}/package-lock.json /app/package-lock.json
 
-# Cài đặt các thư viện node liên quan.
-RUN npm install --verbose --production
+# Tương tự npm install
+RUN npm ci
+
+# # Cài đặt các thư viện node liên quan.
+# RUN npm install --verbose --production
 
 # Copy project vào trong workdir của node.
 COPY ${workdir}/ /app/
+
+ENV CI=true
 
 # Chạy lệnh build.
 RUN npm run build:dev:unix
