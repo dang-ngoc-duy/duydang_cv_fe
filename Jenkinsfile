@@ -8,10 +8,29 @@ pipeline {
     }
 
     stages {
-        stage('Clone repository') {
+        // stage('Clone repository') {
+        //     steps {
+        //         sh 'git clone https://github.com/duydangit/duydang_cv_fe.git'
+        //         sh 'cd ./duydang_cv_fe'
+        //     }
+        // }
+        stage('Check Repository Existence') {
             steps {
-                sh 'git clone https://github.com/duydangit/duydang_cv_fe.git'
-                sh 'cd ./duydang_cv_fe'
+                script {
+                    def repositoryExists = sh(
+                        returnStdout: true,
+                        script: 'git ls-remote https://github.com/duydangit/duydang_cv_fe.git >/dev/null 2>&1; echo $?'
+                    ).trim()
+
+                    if (repositoryExists == '0') {
+                        echo 'Repository exists. Proceeding with pipeline.'
+                        sh 'cd ./duydang_cv_fe'
+                    } else {
+                        echo 'Repository does not exist.'
+                        sh 'git clone https://github.com/duydangit/duydang_cv_fe.git'
+                        sh 'cd ./duydang_cv_fe'
+                    }
+                }
             }
         }
         stage('Checkout') {
