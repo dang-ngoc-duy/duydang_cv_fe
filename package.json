@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.7.1",
+    "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.6.0",
     "@mui/lab": "^5.0.0-alpha.70",
     "@mui/material": "^5.2.5",
@@ -31,6 +31,7 @@
     "react-scripts": "^5.0.1",
     "redux": "^4.1.2",
     "redux-saga": "^1.1.3",
+    "svgo": "^3.0.2",
     "typescript": "^4.5.4",
     "use-debounce": "^7.0.1",
     "web-vitals": "^2.1.2"
@@ -42,7 +43,7 @@
     "eject": "react-scripts eject",
     "rn:unix": "mv build build-dev",
     "clean:unix": "rm -rf build-dev",
-    "build:dev:unix": "npm run build && npm run clean:unix && npm run rn:unix"
+    "build:dev:unix": "npm run build -- --max-old-space-size=1024 && npm run clean:unix && npm run rn:unix"
   },
   "eslintConfig": {
     "extends": [
@@ -64,5 +65,8 @@
   },
   "browser": {
     "crypto": false
+  },
+  "devDependencies": {
+    "ajv": "^8.12.0"
   }
 }
