@@ -62,7 +62,7 @@ const GetLinkMp3: React.FC = () => {
                 <Box className={classes.SongList}>
                     {currType === 'album' && (zingDtaAlbum !== undefined) && zingDtaAlbum?.items?.map((song, idx) => (
                         <div key={idx} className={classes.Song}>
-                            <img className='image' src={song?.thumbnail}/>
+                            <img className='image' src={song?.thumbnail} alt='thumbnail'/>
                             <div className='info'> 
                                 <label className='title'>{song?.title}</label>
                                 <span className='artist'>{song?.artists_names}</span>
@@ -76,7 +76,7 @@ const GetLinkMp3: React.FC = () => {
                     ))}
                     {(currType === 'bai-hat' || currType === 'video-clip') && (zingDtaAudio !== undefined) && (
                         <div className={classes.Song}>
-                            <img className='image' src={zingDtaAudio?.thumbnail}/>
+                            <img className='image' src={zingDtaAudio?.thumbnail} alt='thumbnail'/>
                             <div className='info'> 
                                 <label className='title'>{zingDtaAudio?.title}</label>
                                 <span className='artist'>{zingDtaAudio?.artists_names}</span>
