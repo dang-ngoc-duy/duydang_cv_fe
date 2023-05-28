@@ -1,4 +1,3 @@
-import crypto from 'crypto';
 import Buffer from "buffer";
 //import { APP_LANG_DEFAULT, APP_TOKEN_NAME } from "./constants";
 import { TAuthHeader } from 'app/types/api';
