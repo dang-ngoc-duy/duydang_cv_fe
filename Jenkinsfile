@@ -51,7 +51,8 @@ pipeline {
                     sh "docker pull ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
                     sh "docker stop ddcv-fe-container || true"
                     sh "docker rm ddcv-fe-container || true"
-                    sh "docker run -d -p 80:80 --name ddcv-fe-container ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
+                    // sh "docker run -d -p 80:80 --name ddcv-fe-container ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
+                    sh "docker run -d -p 80:80 -p 443:443 --name ddcv-fe-container -v /etc/letsencrypt:/etc/letsencrypt ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
                 }
             }
         }
