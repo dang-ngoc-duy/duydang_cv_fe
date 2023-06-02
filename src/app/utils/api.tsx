@@ -44,7 +44,7 @@ function execApi<T>(
   if (data) {
     if (configs.method === EMethod.GET) configs.method = EMethod.POST;
 
-    if (data instanceof FormData) {
+    if (data instanceof FormData && headers) {
       headers = Object.assign(headers, contentType(EContentType.BINARY));
       configs.data = data;
     } else {
@@ -57,7 +57,7 @@ function execApi<T>(
   APP_AUTH_ENABLE
   && !configs?.headers?.Authorization
   // && Object.assign(configs.headers, getAuthHeader(decodeToken().token))
-  && Object.assign(configs.headers, getAuthHeader('OTY1MWNkZmQ5YTlhNGViNjkxZjlhM2ExMjVhYzQ2YjA6N2VlN2E2ZTg1MTUzN2M2YzFmYWIwMWQzODYzMWU4YTIx'))
+  && configs?.headers && Object.assign(configs.headers, getAuthHeader('OTY1MWNkZmQ5YTlhNGViNjkxZjlhM2ExMjVhYzQ2YjA6N2VlN2E2ZTg1MTUzN2M2YzFmYWIwMWQzODYzMWU4YTIx'))
 
   return API.request(configs)
     .then((response) => {
