@@ -1,5 +1,11 @@
 pipeline {
-    agent any
+    agent {
+        label 'docker'
+    }
+    
+    options {
+        skipDefaultCheckout()
+    }
 
     environment {
         DOCKER_IMAGE_NAME = 'duydangit/ddcv-fe'
@@ -8,32 +14,7 @@ pipeline {
     }
 
     stages {
-        // stage('Clone repository') {
-        //     steps {
-        //         sh 'git clone https://github.com/duydangit/duydang_cv_fe.git'
-        //         sh 'cd ./duydang_cv_fe'
-        //     }
-        // }
-        stage('Check Repository Existence') {
-            steps {
-                script {
-                    def repositoryExists = sh(
-                        returnStdout: true,
-                        script: 'git ls-remote https://github.com/duydangit/duydang_cv_fe.git >/dev/null 2>&1; echo $?'
-                    ).trim()
-
-                    if (repositoryExists == '0') {
-                        echo 'Repository exists. Proceeding with pipeline.'
-                        sh 'cd ./duydang_cv_fe'
-                    } else {
-                        echo 'Repository does not exist.'
-                        sh 'git clone https://github.com/duydangit/duydang_cv_fe.git'
-                        sh 'cd ./duydang_cv_fe'
-                    }
-                }
-            }
-        }
-        stage('Checkout') {
+        stage('Clone Repository') {
             steps {
                 checkout([
                     $class: 'GitSCM',
@@ -45,32 +26,33 @@ pipeline {
                 ])
             }
         }
-        stage('Build Docker image') {
+
+        stage('Build Docker Image') {
             steps {
                 script {
-                    sh "docker build -t ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG} ."
+                    docker.build("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}", '.')
                 }
             }
         }
 
-        stage('Push Docker image') {
+        stage('Push Docker Image') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'DOCKER_HUB_PASSWORD', usernameVariable: 'DOCKER_HUB_USERNAME')]) {
-                    script {
-                        sh "docker login -u ${DOCKER_HUB_USERNAME} -p ${DOCKER_HUB_PASSWORD} ${DOCKER_REGISTRY_URL}"
-                        sh "docker push ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'DOCKER_HUB_PASSWORD', usernameVariable: 'DOCKER_HUB_USERNAME')]) {
+                        docker.withRegistry(DOCKER_REGISTRY_URL, DOCKER_HUB_USERNAME, DOCKER_HUB_PASSWORD) {
+                            docker.image("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}").push()
+                        }
                     }
                 }
             }
         }
 
-        stage('Deploy Docker container') {
+        stage('Deploy Docker Container') {
             steps {
                 script {
                     sh "docker pull ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
                     sh "docker stop ddcv-fe-container || true"
                     sh "docker rm ddcv-fe-container || true"
-                    // sh "docker run -d -p 80:80 --name ddcv-fe-container ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
                     sh "docker run -d -p 80:80 -p 443:443 --name ddcv-fe-container -v /etc/letsencrypt:/etc/letsencrypt ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
                 }
             }
