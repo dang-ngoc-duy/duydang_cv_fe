@@ -12,7 +12,7 @@ WORKDIR /app
 # Copy package.json và package-lock.json vào trong workdir của node.
 # COPY ${workdir}/package.json /app/
 COPY ${workdir}/package.json /app/package.json
-COPY ${workdir}/package-lock.json /app/package-lock.json
+# COPY ${workdir}/package-lock.json /app/package-lock.json
 
 # Tương tự npm install
 RUN npm ci
