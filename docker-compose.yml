@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   influxdb:
     image: influxdb:latest
@@ -38,8 +38,8 @@ services:
     volumes:
       - ./prometheus:/etc/prometheus/
     command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--storage.tsdb.path=/prometheus'
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/prometheus"
     depends_on:
       - influxdb
 networks:

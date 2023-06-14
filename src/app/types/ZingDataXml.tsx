@@ -1,5 +1,5 @@
 export interface ZingDataXmlState {
-    fetching: boolean;
-    fetched: boolean;
-    data: string;
+  fetching: boolean;
+  fetched: boolean;
+  data: string;
 }

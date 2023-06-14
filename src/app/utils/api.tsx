@@ -1,34 +1,40 @@
-import axios, { AxiosRequestConfig } from "axios";
-import { contentType, getAuthHeader } from "../utils";
-import { IHeaderRequest, IDataRequest, IResponse, IApiResponse, IApiPaging } from "../types/api";
+import axios, { AxiosRequestConfig } from 'axios';
+import { contentType, getAuthHeader } from '../utils';
+import {
+  IHeaderRequest,
+  IDataRequest,
+  IResponse,
+  IApiResponse,
+  IApiPaging,
+} from '../types/api';
 import {
   API_BASE_URL,
   APP_AUTH_ENABLE,
   ON_FETCH_ERROR,
   ON_PARSE_ERROR,
-  ON_RESPONSE_ERROR
-} from "./constants";
+  ON_RESPONSE_ERROR,
+} from './constants';
 
 export enum EMethod {
-  GET = "get",
-  POST = "post",
-  PUT = "put",
-  PATCH = "patch",
-  HEAD = "head",
-  DELETE = "delete"
+  GET = 'get',
+  POST = 'post',
+  PUT = 'put',
+  PATCH = 'patch',
+  HEAD = 'head',
+  DELETE = 'delete',
 }
 
 export enum EContentType {
-  JSON = "application/json",
-  BINARY = "multipart/form-data",
-  TEXT = "plain/text",
-  URLENCODED = "application/x-www-form-urlencoded"
+  JSON = 'application/json',
+  BINARY = 'multipart/form-data',
+  TEXT = 'plain/text',
+  URLENCODED = 'application/x-www-form-urlencoded',
 }
 
 const API = axios.create({
   baseURL: API_BASE_URL,
   headers: { Accept: EContentType.JSON, ...contentType(EContentType.JSON) },
-  withCredentials: true
+  withCredentials: true,
 });
 
 function execApi<T>(
@@ -37,7 +43,7 @@ function execApi<T>(
   data?: IDataRequest,
   headers?: IHeaderRequest,
   configs?: AxiosRequestConfig
-){
+) {
   configs = configs ?? {};
   Object.assign(configs, { url: uri, method, headers, data: null });
 
@@ -48,20 +54,25 @@ function execApi<T>(
       headers = Object.assign(headers, contentType(EContentType.BINARY));
       configs.data = data;
     } else {
-      configs.data = data;//JSON.stringify(data);
+      configs.data = data; //JSON.stringify(data);
     }
   }
 
   Object.assign(configs, { headers: configs.headers || {} });
 
-  APP_AUTH_ENABLE
-  && !configs?.headers?.Authorization
-  // && Object.assign(configs.headers, getAuthHeader(decodeToken().token))
-  && configs?.headers && Object.assign(configs.headers, getAuthHeader('OTY1MWNkZmQ5YTlhNGViNjkxZjlhM2ExMjVhYzQ2YjA6N2VlN2E2ZTg1MTUzN2M2YzFmYWIwMWQzODYzMWU4YTIx'))
+  APP_AUTH_ENABLE &&
+    !configs?.headers?.Authorization &&
+    // && Object.assign(configs.headers, getAuthHeader(decodeToken().token))
+    configs?.headers &&
+    Object.assign(
+      configs.headers,
+      getAuthHeader(
+        'OTY1MWNkZmQ5YTlhNGViNjkxZjlhM2ExMjVhYzQ2YjA6N2VlN2E2ZTg1MTUzN2M2YzFmYWIwMWQzODYzMWU4YTIx'
+      )
+    );
 
   return API.request(configs)
-    .then((response) => {
-
+    .then(response => {
       const result: IApiResponse<T> = {
         data: null,
         success: false,
@@ -72,7 +83,7 @@ function execApi<T>(
         ...result,
         current_page: 1,
         total_items: 0,
-        total_page: 0
+        total_page: 0,
       };
 
       let hasPaging = false;
@@ -85,7 +96,7 @@ function execApi<T>(
           result.success = true;
           result.errors = [];
 
-          if ('total_page' in response.data){
+          if ('total_page' in response.data) {
             hasPaging = true;
             result1.total_page = response.data.total_page ?? 0;
             result1.total_items = response.data.total_items ?? 0;
@@ -98,9 +109,9 @@ function execApi<T>(
         result.errors = ON_PARSE_ERROR;
       }
 
-      return hasPaging ? { ...result1, ...result } as IApiPaging<T> : result;
+      return hasPaging ? ({ ...result1, ...result } as IApiPaging<T>) : result;
     })
-    .catch((error) => {
+    .catch(error => {
       if (error.response && error.response.data) {
         const response = error.response.data;
         response.success = false;
@@ -109,7 +120,7 @@ function execApi<T>(
         return {
           success: false,
           data: null,
-          errors: ON_FETCH_ERROR
+          errors: ON_FETCH_ERROR,
         };
       }
     });

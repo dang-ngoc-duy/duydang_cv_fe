@@ -1,9 +1,13 @@
 import Intro from 'app/components/layout/Intro';
+import ProjectsStyles from './styles';
+import clsx from 'clsx';
 
-const Photo: React.FC = () => {
+const Projects: React.FC = () => {
+  const classes = ProjectsStyles();
+
   return (
-    <>
-      <Intro title="Photo">
+    <div className={clsx(classes.Projects)}>
+      <Intro title="Projects">
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -22,8 +26,8 @@ const Photo: React.FC = () => {
           scrambled it to make a type specimen book.
         </p>
       </Intro>
-    </>
+    </div>
   );
 };
 
-export default Photo;
+export default Projects;
