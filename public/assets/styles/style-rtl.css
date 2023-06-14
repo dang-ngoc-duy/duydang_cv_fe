@@ -24,7 +24,8 @@ body {
   margin-left: 0.5rem;
   margin-right: 0;
 }
-.title__separate::before, .title__separate::after {
+.title__separate::before,
+.title__separate::after {
   left: auto;
   right: 0;
 }
@@ -326,11 +327,11 @@ body {
 ----------------------------------------------------------------- */
 .timeline {
   padding-left: 0;
-  padding-right: .5rem;
+  padding-right: 0.5rem;
 }
 .timeline__item {
   border-left: 0;
-  border-right: 1px solid #EBF0F2;
+  border-right: 1px solid #ebf0f2;
   padding-left: 0;
   padding-right: 1.4rem;
 }

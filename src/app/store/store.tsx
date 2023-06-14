@@ -17,7 +17,7 @@ if (process.env.NODE_ENV !== "production") {
 
 const store = configureStore({
   reducer,
-  middleware: (gd) => gd({ serializableCheck: false }).concat(...middlewares)
+  middleware: (gd) => gd({ serializableCheck: false }).concat(...middlewares),
 });
 
 sagaMiddleware.run(rootSaga);

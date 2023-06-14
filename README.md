@@ -19,9 +19,9 @@ If you wish to run the website locally on your computer, follow these steps:
 
 1. Clone this repository to your local machine using the following command:
 
-    ```
-    git clone https://github.com/duydangit/duydang_cv_fe.git
-    ```
+   ```
+   git clone https://github.com/duydangit/duydang_cv_fe.git
+   ```
 
 2. Navigate to the root directory of the project.
 

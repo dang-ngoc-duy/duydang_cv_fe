@@ -5,8 +5,8 @@ import ZingDataAudioReducer from "app/features/zing-data-audio";
 import { RootState } from "app/types/reducer";
 
 const reducer: ReducersMapObject<RootState, AnyAction> = {
-    zingDataAlbum: ZingDataAlbumReducer,
-    zingDataAudio: ZingDataAudioReducer,
-    zingDataXml: ZingDataXMLReducer,
-}
+  zingDataAlbum: ZingDataAlbumReducer,
+  zingDataAudio: ZingDataAudioReducer,
+  zingDataXml: ZingDataXMLReducer,
+};
 export default reducer;

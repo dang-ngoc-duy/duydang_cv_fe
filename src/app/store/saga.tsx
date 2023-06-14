@@ -4,9 +4,5 @@ import zingDtaAudioSaga from "app/features/zing-data-audio/saga";
 import { all } from "redux-saga/effects";
 
 export default function* rootSaga() {
-  yield all([
-    zingDataXmlSaga(),
-    zingDtaAlbumSaga(),
-    zingDtaAudioSaga(),
-  ]);
+  yield all([zingDataXmlSaga(), zingDtaAlbumSaga(), zingDtaAudioSaga()]);
 }

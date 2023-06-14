@@ -1,14 +1,12 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode } from "react";
 
 export interface IContentProps {
-    children: ReactNode;
+  children: ReactNode;
 }
 
 const ContentWraper: React.FC<IContentProps> = (props) => {
-    const { children } = props;
-    return (
-        <div className="box box-content">{children}</div>
-    )
-}
+  const { children } = props;
+  return <div className="box box-content">{children}</div>;
+};
 
-export default ContentWraper
+export default ContentWraper;
