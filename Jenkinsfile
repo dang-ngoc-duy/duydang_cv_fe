@@ -34,18 +34,18 @@ pipeline {
                 }
             }
         }
-
+        
         stage('Push Docker Image') {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'DOCKER_HUB_PASSWORD', usernameVariable: 'DOCKER_HUB_USERNAME')]) {
-                        docker.withRegistry(DOCKER_REGISTRY_URL, DOCKER_HUB_USERNAME, DOCKER_HUB_PASSWORD) {
-                            docker.image("${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}").push()
-                        }
+                        sh "docker login -u ${DOCKER_HUB_USERNAME} -p ${DOCKER_HUB_PASSWORD} ${DOCKER_REGISTRY_URL}"
+                        sh "docker push ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}"
                     }
                 }
             }
         }
+
 
         stage('Deploy Docker Container') {
             steps {
