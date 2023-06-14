@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 export interface ICarouselProps {
-  variant: "fill" | "nofill";
+  variant: 'fill' | 'nofill';
   itemList: ReactNode[];
 }
 
-const Carousel: React.FC<ICarouselProps> = (props) => {
+const Carousel: React.FC<ICarouselProps> = props => {
   const { variant, itemList } = props;
 
   const renderFillCarousel = () => (
@@ -34,7 +34,7 @@ const Carousel: React.FC<ICarouselProps> = (props) => {
   );
 
   return (
-    <>{variant === "fill" ? renderFillCarousel() : renderNoFillCarousel()}</>
+    <>{variant === 'fill' ? renderFillCarousel() : renderNoFillCarousel()}</>
   );
 };
 

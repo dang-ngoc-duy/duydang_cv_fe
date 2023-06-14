@@ -1,4 +1,4 @@
-import { IError } from "./api";
+import { IError } from './api';
 
 export interface ZingDataAudioState {
   fetching: boolean;

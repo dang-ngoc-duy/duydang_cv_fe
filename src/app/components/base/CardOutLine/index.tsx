@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode } from 'react';
 
 export interface ICardOutlineProps {
   icon: ReactNode;
@@ -6,11 +6,11 @@ export interface ICardOutlineProps {
   content: string;
 }
 
-const CardOutline: React.FC<ICardOutlineProps> = (props) => {
+const CardOutline: React.FC<ICardOutlineProps> = props => {
   const { icon, title, content } = props;
   return (
     <div className="case-item">
-      <div style={{ width: "auto" }} className="case-item__icon">
+      <div style={{ width: 'auto' }} className="case-item__icon">
         {icon}
       </div>
       <div>

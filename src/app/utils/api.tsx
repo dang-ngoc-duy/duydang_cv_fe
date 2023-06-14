@@ -1,34 +1,34 @@
-import axios, { AxiosRequestConfig } from "axios";
-import { contentType, getAuthHeader } from "../utils";
+import axios, { AxiosRequestConfig } from 'axios';
+import { contentType, getAuthHeader } from '../utils';
 import {
   IHeaderRequest,
   IDataRequest,
   IResponse,
   IApiResponse,
   IApiPaging,
-} from "../types/api";
+} from '../types/api';
 import {
   API_BASE_URL,
   APP_AUTH_ENABLE,
   ON_FETCH_ERROR,
   ON_PARSE_ERROR,
   ON_RESPONSE_ERROR,
-} from "./constants";
+} from './constants';
 
 export enum EMethod {
-  GET = "get",
-  POST = "post",
-  PUT = "put",
-  PATCH = "patch",
-  HEAD = "head",
-  DELETE = "delete",
+  GET = 'get',
+  POST = 'post',
+  PUT = 'put',
+  PATCH = 'patch',
+  HEAD = 'head',
+  DELETE = 'delete',
 }
 
 export enum EContentType {
-  JSON = "application/json",
-  BINARY = "multipart/form-data",
-  TEXT = "plain/text",
-  URLENCODED = "application/x-www-form-urlencoded",
+  JSON = 'application/json',
+  BINARY = 'multipart/form-data',
+  TEXT = 'plain/text',
+  URLENCODED = 'application/x-www-form-urlencoded',
 }
 
 const API = axios.create({
@@ -67,12 +67,12 @@ function execApi<T>(
     Object.assign(
       configs.headers,
       getAuthHeader(
-        "OTY1MWNkZmQ5YTlhNGViNjkxZjlhM2ExMjVhYzQ2YjA6N2VlN2E2ZTg1MTUzN2M2YzFmYWIwMWQzODYzMWU4YTIx"
+        'OTY1MWNkZmQ5YTlhNGViNjkxZjlhM2ExMjVhYzQ2YjA6N2VlN2E2ZTg1MTUzN2M2YzFmYWIwMWQzODYzMWU4YTIx'
       )
     );
 
   return API.request(configs)
-    .then((response) => {
+    .then(response => {
       const result: IApiResponse<T> = {
         data: null,
         success: false,
@@ -96,7 +96,7 @@ function execApi<T>(
           result.success = true;
           result.errors = [];
 
-          if ("total_page" in response.data) {
+          if ('total_page' in response.data) {
             hasPaging = true;
             result1.total_page = response.data.total_page ?? 0;
             result1.total_items = response.data.total_items ?? 0;
@@ -111,7 +111,7 @@ function execApi<T>(
 
       return hasPaging ? ({ ...result1, ...result } as IApiPaging<T>) : result;
     })
-    .catch((error) => {
+    .catch(error => {
       if (error.response && error.response.data) {
         const response = error.response.data;
         response.success = false;

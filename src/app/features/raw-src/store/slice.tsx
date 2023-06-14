@@ -1,15 +1,15 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "app/types/reducer";
-import { ZingDataXmlState } from "app/types/ZingDataXml";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from 'app/types/reducer';
+import { ZingDataXmlState } from 'app/types/ZingDataXml';
 
 const initialState: ZingDataXmlState = {
   fetching: false,
   fetched: false,
-  data: "",
+  data: '',
 };
 
 const ZingDataXMLSlice = createSlice({
-  name: "zing-data-xml",
+  name: 'zing-data-xml',
   initialState,
   reducers: {
     fetchZingDataXML(state, action: PayloadAction<string>) {

@@ -1,4 +1,4 @@
-import { ZingDataAlbumActions } from "./index";
+import { ZingDataAlbumActions } from './index';
 
 export const fetchZingDataAlbum = ZingDataAlbumActions.fetchZingDataAlbum;
 export const fetchZingDataAlbumSuccess =

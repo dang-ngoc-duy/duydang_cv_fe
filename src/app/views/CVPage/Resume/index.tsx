@@ -1,12 +1,12 @@
-import Chip from "@mui/material/Chip";
-import TimeLine, { TimelineItem } from "app/components/base/TimeLine";
-import Intro from "app/components/layout/Intro";
+import Chip from '@mui/material/Chip';
+import TimeLine, { TimelineItem } from 'app/components/base/TimeLine';
+import Intro from 'app/components/layout/Intro';
 
 const Resume: React.FC = () => {
   const expItems: TimelineItem[] = [
     {
-      title: "UCARS Pte Ltd - (Full-stack Developer)",
-      time: ["2022", "Present"],
+      title: 'UCARS Pte Ltd - (Full-stack Developer)',
+      time: ['2022', 'Present'],
       children: (
         <div>
           <p>
@@ -27,8 +27,8 @@ const Resume: React.FC = () => {
       ),
     },
     {
-      title: "Sai Gon Joint Stock Commercial Bank - (Full-stack Developer)",
-      time: ["2021", "2022"],
+      title: 'Sai Gon Joint Stock Commercial Bank - (Full-stack Developer)',
+      time: ['2021', '2022'],
       children: (
         <div>
           <p>
@@ -57,8 +57,8 @@ const Resume: React.FC = () => {
       ),
     },
     {
-      title: "Freelancer",
-      time: ["2019", "2021"],
+      title: 'Freelancer',
+      time: ['2019', '2021'],
       children: (
         <div>
           <p>
@@ -69,8 +69,8 @@ const Resume: React.FC = () => {
       ),
     },
     {
-      title: "Platinum Living Corporation - (System Administrator)",
-      time: ["2016", "2021"],
+      title: 'Platinum Living Corporation - (System Administrator)',
+      time: ['2016', '2021'],
       children: (
         <div>
           <p>
@@ -84,8 +84,8 @@ const Resume: React.FC = () => {
       ),
     },
     {
-      title: "IFB Holdings Ltd - (IT Staff)",
-      time: ["2014", "2015"],
+      title: 'IFB Holdings Ltd - (IT Staff)',
+      time: ['2014', '2015'],
       children: (
         <div>
           <p>
@@ -101,20 +101,20 @@ const Resume: React.FC = () => {
   const eduItems: TimelineItem[] = [
     {
       title:
-        "University of Information Technology - (Master of Information Security)",
-      time: ["2022", "Present"],
+        'University of Information Technology - (Master of Information Security)',
+      time: ['2022', 'Present'],
       children: null,
     },
     {
       title:
-        "Ho Chi Minh City University of Technology - (Software engineering)",
-      time: ["2019", "2021"],
+        'Ho Chi Minh City University of Technology - (Software engineering)',
+      time: ['2019', '2021'],
       children: null,
     },
     {
       title:
-        "Ho Chi Minh City University of Technology - (Computer network administration)",
-      time: ["2013", "2016"],
+        'Ho Chi Minh City University of Technology - (Computer network administration)',
+      time: ['2013', '2016'],
       children: null,
     },
   ];
@@ -126,33 +126,31 @@ const Resume: React.FC = () => {
           <div className="col-12">
             <TimeLine
               timeLineItems={expItems}
-              title={"Experience"}
+              title={'Experience'}
               icon={
                 <img
                   className="title-icon"
                   src="..\assets\icons\dark\icon-experience.svg"
                   alt=""
                 />
-              }
-            ></TimeLine>
+              }></TimeLine>
             <TimeLine
               timeLineItems={eduItems}
-              title={"Education"}
+              title={'Education'}
               icon={
                 <img
                   className="title-icon"
                   src="..\assets\icons\dark\icon-education.svg"
                   alt=""
                 />
-              }
-            ></TimeLine>
+              }></TimeLine>
           </div>
         </div>
         <div className="row">
           <div className="col-12">
             <h2 className="title title--h3">My Skills</h2>
             <div className="box box__border">
-              <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
                 <Chip color="primary" label="JavaScript" />
                 <Chip color="primary" label="TypeScript" />
                 <Chip color="primary" label="Java" />

@@ -1,6 +1,6 @@
-import { PayloadAction } from "@reduxjs/toolkit";
-import { IError } from "app/types/api";
-import { ZingDataAlbum, ZingDataAlbumState } from "app/types/ZingDataAlbum";
+import { PayloadAction } from '@reduxjs/toolkit';
+import { IError } from 'app/types/api';
+import { ZingDataAlbum, ZingDataAlbumState } from 'app/types/ZingDataAlbum';
 
 export const ZingDataAlbumCase = {
   fetchZingDataAlbum: (

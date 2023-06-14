@@ -1,31 +1,31 @@
 import CardOutline, {
   ICardOutlineProps,
-} from "app/components/base/CardOutLine";
-import Intro from "app/components/layout/Intro";
+} from 'app/components/base/CardOutLine';
+import Intro from 'app/components/layout/Intro';
 
 const About: React.FC = () => {
   const cardItems: ICardOutlineProps[] = [
     {
       icon: <img src="assets/icons/icon-design.svg" alt="about-img"></img>,
-      title: "Web design",
+      title: 'Web design',
       content:
-        "The most modern and high-quality design made at a professional level.",
+        'The most modern and high-quality design made at a professional level.',
     },
     {
       icon: <img src="assets/icons/icon-dev.svg" alt="about-img"></img>,
-      title: "Web Development",
-      content: "High-quality development of sites at the professional level.",
+      title: 'Web Development',
+      content: 'High-quality development of sites at the professional level.',
     },
     {
       icon: <img src="assets/icons/icon-app.svg" alt="about-img"></img>,
-      title: "Mobile Apps",
-      content: "Professional development of applications for iOS and Android.",
+      title: 'Mobile Apps',
+      content: 'Professional development of applications for iOS and Android.',
     },
     {
       icon: <img src="assets/icons/icon-photo.svg" alt="about-img"></img>,
-      title: "Photography",
+      title: 'Photography',
       content:
-        "I make high-quality photos of any category at a professional level.",
+        'I make high-quality photos of any category at a professional level.',
     },
   ];
 
@@ -58,8 +58,7 @@ const About: React.FC = () => {
                 <CardOutline
                   icon={item.icon}
                   title={item.title}
-                  content={item.content}
-                ></CardOutline>
+                  content={item.content}></CardOutline>
               </div>
             ))}
           </div>

@@ -1,8 +1,8 @@
-import createSagaMiddleware from "@redux-saga/core";
-import reducer from "./reducer";
-import rootSaga from "./saga";
+import createSagaMiddleware from '@redux-saga/core';
+import reducer from './reducer';
+import rootSaga from './saga';
 //import { createLogger } from "redux-logger";
-import { configureStore, Middleware } from "@reduxjs/toolkit";
+import { configureStore, Middleware } from '@reduxjs/toolkit';
 
 const sagaMiddleware = createSagaMiddleware();
 // const logger = createLogger({
@@ -11,13 +11,13 @@ const sagaMiddleware = createSagaMiddleware();
 
 const middlewares: Middleware[] = [sagaMiddleware];
 
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== 'production') {
   //middlewares.push(logger);
 }
 
 const store = configureStore({
   reducer,
-  middleware: (gd) => gd({ serializableCheck: false }).concat(...middlewares),
+  middleware: gd => gd({ serializableCheck: false }).concat(...middlewares),
 });
 
 sagaMiddleware.run(rootSaga);

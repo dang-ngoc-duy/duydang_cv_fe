@@ -1,9 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { ZingDataAlbumCase } from "./case";
-import { initialState } from "./state";
+import { createSlice } from '@reduxjs/toolkit';
+import { ZingDataAlbumCase } from './case';
+import { initialState } from './state';
 
 const zingDataAlbumSlice = createSlice({
-  name: "zing-data-album",
+  name: 'zing-data-album',
   initialState,
   reducers: {
     ...ZingDataAlbumCase,

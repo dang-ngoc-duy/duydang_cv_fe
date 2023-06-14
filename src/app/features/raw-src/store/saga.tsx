@@ -1,10 +1,10 @@
-import { PayloadAction } from "@reduxjs/toolkit";
-import { fetchZingDataAlbum } from "app/features/zing-data-album/action";
-import { fetchZingDataAudio } from "app/features/zing-data-audio/action";
-import { IApiResponse } from "app/types/api";
-import { call, put, takeEvery } from "redux-saga/effects";
-import { fetchDataXml } from "../models/api";
-import { fetchZingDataXML, fetchZingDataXMLDone } from "./slice";
+import { PayloadAction } from '@reduxjs/toolkit';
+import { fetchZingDataAlbum } from 'app/features/zing-data-album/action';
+import { fetchZingDataAudio } from 'app/features/zing-data-audio/action';
+import { IApiResponse } from 'app/types/api';
+import { call, put, takeEvery } from 'redux-saga/effects';
+import { fetchDataXml } from '../models/api';
+import { fetchZingDataXML, fetchZingDataXMLDone } from './slice';
 
 function* handleFetchZingDataXml(action: PayloadAction<string>) {
   try {
@@ -12,24 +12,24 @@ function* handleFetchZingDataXml(action: PayloadAction<string>) {
 
     if (res.success) {
       let parser = new DOMParser();
-      let doc = parser.parseFromString(res.data as string, "text/html");
+      let doc = parser.parseFromString(res.data as string, 'text/html');
       let dataXml = doc.body
-        .querySelector("div[data-xml]")
-        ?.getAttribute("data-xml") as string;
-      let typeDta: string = action.payload.split("/")[3];
+        .querySelector('div[data-xml]')
+        ?.getAttribute('data-xml') as string;
+      let typeDta: string = action.payload.split('/')[3];
 
       if (dataXml && typeDta) {
         switch (typeDta) {
-          case "album":
+          case 'album':
             yield put(fetchZingDataAlbum(dataXml));
             yield put(fetchZingDataXMLDone(res.data as string));
             break;
-          case "bai-hat":
+          case 'bai-hat':
             yield put(fetchZingDataAudio(dataXml));
             yield put(fetchZingDataXMLDone(res.data as string));
             break;
-          case "video-clip":
-            console.log("🍌 ", dataXml, typeDta);
+          case 'video-clip':
+            console.log('🍌 ', dataXml, typeDta);
             yield put(fetchZingDataAudio(dataXml));
             yield put(fetchZingDataXMLDone(res.data as string));
             break;

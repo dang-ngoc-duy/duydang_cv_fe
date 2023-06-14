@@ -1,4 +1,4 @@
-import { ZingDataAudioActions } from "./index";
+import { ZingDataAudioActions } from './index';
 
 export const fetchZingDataAudio = ZingDataAudioActions.fetchZingDataAudio;
 export const fetchZingDataAudioSuccess =

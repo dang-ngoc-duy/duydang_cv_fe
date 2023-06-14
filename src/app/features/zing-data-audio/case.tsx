@@ -1,13 +1,13 @@
-import { PayloadAction } from "@reduxjs/toolkit";
-import { IError } from "app/types/api";
-import { ZingDataAudio, ZingDataAudioState } from "app/types/ZingDataAudio";
+import { PayloadAction } from '@reduxjs/toolkit';
+import { IError } from 'app/types/api';
+import { ZingDataAudio, ZingDataAudioState } from 'app/types/ZingDataAudio';
 
 export const ZingDataAudioCase = {
   fetchZingDataAudio: (
     state: ZingDataAudioState,
     action: PayloadAction<string>
   ) => {
-    console.log("🍌 ~ file: case.tsx ~ line 7 ~ action", action);
+    console.log('🍌 ~ file: case.tsx ~ line 7 ~ action', action);
     state.fetching = true;
     state.fetched = false;
   },

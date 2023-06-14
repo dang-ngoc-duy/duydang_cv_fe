@@ -14,7 +14,7 @@
  - Sections
   
 ------------------------------------------------ */
-@import url("./css2.css");
+@import url('./css2.css');
 /* -----------------------------------------------------------------
     - General Styles
 ----------------------------------------------------------------- */
@@ -147,22 +147,22 @@ select option,
 }
 
 .bs-tooltip-top .arrow::before,
-.bs-tooltip-auto[x-placement^="top"] .arrow::before {
+.bs-tooltip-auto[x-placement^='top'] .arrow::before {
   border-top-color: #aeb0b8;
 }
 
 .bs-tooltip-right .arrow::before,
-.bs-tooltip-auto[x-placement^="right"] .arrow::before {
+.bs-tooltip-auto[x-placement^='right'] .arrow::before {
   border-right-color: #aeb0b8;
 }
 
 .bs-tooltip-left .arrow::before,
-.bs-tooltip-auto[x-placement^="left"] .arrow::before {
+.bs-tooltip-auto[x-placement^='left'] .arrow::before {
   border-left-color: #aeb0b8;
 }
 
 .bs-tooltip-bottom .arrow::before,
-.bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
+.bs-tooltip-auto[x-placement^='bottom'] .arrow::before {
   border-bottom-color: #aeb0b8;
 }
 

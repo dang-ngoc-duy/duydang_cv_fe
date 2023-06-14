@@ -1,5 +1,5 @@
-import React, { useEffect, useState, CSSProperties } from "react";
-import { Animated, AnimationString } from "react-animated-css";
+import React, { useEffect, useState, CSSProperties } from 'react';
+import { Animated, AnimationString } from 'react-animated-css';
 
 interface AnimationComponentProps {
   visible: boolean;
@@ -11,7 +11,7 @@ interface AnimationComponentProps {
   className?: string;
 }
 
-const AnimationComponent: React.FC<AnimationComponentProps> = (props) => {
+const AnimationComponent: React.FC<AnimationComponentProps> = props => {
   const {
     visible,
     animationIn,
@@ -36,7 +36,7 @@ const AnimationComponent: React.FC<AnimationComponentProps> = (props) => {
   }, [visible]);
 
   const style: CSSProperties | undefined = noDisplay
-    ? { display: "none" }
+    ? { display: 'none' }
     : undefined;
 
   return (
@@ -46,8 +46,7 @@ const AnimationComponent: React.FC<AnimationComponentProps> = (props) => {
       style={style}
       animationIn={animationIn}
       animationOut={animationOut}
-      {...rest}
-    >
+      {...rest}>
       {children}
     </Animated>
   );

@@ -1,5 +1,5 @@
 /*! Elastic border */
-$(".elastic-border").each(function (t) {
+$('.elastic-border').each(function (t) {
   function s(t, i, o) {
     (this.x = t),
       (this.ix = t),
@@ -11,8 +11,8 @@ $(".elastic-border").each(function (t) {
       (this.canvas = o);
   }
   function h() {
-    var t = $(".elastic-border"),
-      i = t.get(0).getContext("2d");
+    var t = $('.elastic-border'),
+      i = t.get(0).getContext('2d');
     for (
       a = requestAnimationFrame(h),
         i.clearRect(0, 0, t.width(), t.height()),
@@ -47,12 +47,12 @@ $(".elastic-border").each(function (t) {
       l.showIndicators)
     ) {
       for (
-        i.fillStyle = "#2E2F36", i.beginPath(), o = 0;
+        i.fillStyle = '#2E2F36', i.beginPath(), o = 0;
         o <= l.totalPoints - 1;
         o++
       )
         (e = n[o]), i.rect(e.x - 2, e.y - 2, 4, 4);
-      i.fill(), (i.fillStyle = "#fff"), i.beginPath();
+      i.fill(), (i.fillStyle = '#fff'), i.beginPath();
       for (var o = 0; o <= l.totalPoints - 1; o++) {
         var e = n[o];
         i.rect(e.cx - 1, e.cy - 1, 2, 2);
@@ -68,8 +68,8 @@ $(".elastic-border").each(function (t) {
         (this.mouseDist = 100),
         (this.damping = 0.05),
         (this.showIndicators = !1),
-        (this.leftColor = "#ffffff"),
-        (this.rightColor = "#2E2F36");
+        (this.leftColor = '#ffffff'),
+        (this.rightColor = '#2E2F36');
     })(),
     e = 0,
     r = 0,
@@ -77,7 +77,7 @@ $(".elastic-border").each(function (t) {
     o = 0,
     c = 0,
     f = 0;
-  $(document).on("mousemove", function (t) {
+  $(document).on('mousemove', function (t) {
     (c = e < t.pageX ? 1 : e > t.pageX ? -1 : 0),
       r < t.pageY ? 1 : r > t.pageY ? -1 : 0,
       (e = t.pageX),
@@ -90,7 +90,7 @@ $(".elastic-border").each(function (t) {
       this.vx += (this.ix - this.x) / l.viscosity;
       var t = this.ix - e,
         i = this.y - r,
-        o = this.canvas.data("gap");
+        o = this.canvas.data('gap');
       ((0 < c && e > this.x) || (c < 0 && e < this.x)) &&
         Math.sqrt(t * t) < l.mouseDist &&
         Math.sqrt(i * i) < o &&
@@ -99,13 +99,13 @@ $(".elastic-border").each(function (t) {
         (this.x += this.vx);
     }),
     $(window)
-      .on("resize", function () {
+      .on('resize', function () {
         !(function () {
-          var t = $(".elastic-border");
-          t.get(0).getContext("2d"),
+          var t = $('.elastic-border');
+          t.get(0).getContext('2d'),
             cancelAnimationFrame(a),
-            ($(".elastic-border").get(0).width = $(window).width()),
-            ($(".elastic-border").get(0).height = $(window).height()),
+            ($('.elastic-border').get(0).width = $(window).width()),
+            ($('.elastic-border').get(0).height = $(window).height()),
             (n = []);
           for (
             var i = t.height() / (l.totalPoints - 1),
@@ -115,39 +115,39 @@ $(".elastic-border").each(function (t) {
             e++
           )
             n.push(new s(o, e * i, t));
-          h(), t.data("gap", i);
+          h(), t.data('gap', i);
         })();
       })
-      .trigger("resize");
+      .trigger('resize');
 });
 
 $(document).ready(function () {
-  "use strict";
+  'use strict';
 
   /* Slide nav */
 
-  $(".slideNav").each(function (i) {
+  $('.slideNav').each(function (i) {
     var sideNavTl = anime.timeline({ autoplay: false });
-    anime.set(".slideNav", {
-      translateX: "-100%",
+    anime.set('.slideNav', {
+      translateX: '-100%',
     });
-    anime.set(".slideNav .slideNav__item", {
-      translateX: "-100%",
+    anime.set('.slideNav .slideNav__item', {
+      translateX: '-100%',
     });
-    anime.set(".slideClose", {
-      translateX: "70",
+    anime.set('.slideClose', {
+      translateX: '70',
     });
     sideNavTl
       .add({
-        targets: ".slideOpen",
+        targets: '.slideOpen',
         duration: 300,
-        translateX: "-300",
+        translateX: '-300',
         opacity: 0,
-        easing: "easeInOutQuart",
+        easing: 'easeInOutQuart',
       })
       .add(
         {
-          targets: ".overlay-slideNav",
+          targets: '.overlay-slideNav',
           opacity: {
             value: 1,
             duration: 500,
@@ -159,39 +159,39 @@ $(document).ready(function () {
             delay: 0,
           },
         },
-        "-=300"
+        '-=300'
       )
       .add(
         {
-          targets: ".slideNav",
+          targets: '.slideNav',
           translateX: 0,
           duration: 500,
-          easing: "easeInOutQuart",
+          easing: 'easeInOutQuart',
         },
-        "-=500"
+        '-=500'
       )
       .add(
         {
-          targets: ".slideClose",
+          targets: '.slideClose',
           translateX: 0,
           opacity: 1,
           rotate: 90,
-          easing: "easeInOutQuart",
+          easing: 'easeInOutQuart',
         },
-        "-=500"
+        '-=500'
       )
       .add(
         {
-          targets: ".slideNav .slideNav__item",
+          targets: '.slideNav .slideNav__item',
           duration: 200,
           delay: anime.stagger(60),
           translateX: 0,
-          easing: "easeInOutCirc",
+          easing: 'easeInOutCirc',
         },
-        "-=1000"
+        '-=1000'
       );
 
-    $(".btnSlideNav").on("click", function (e) {
+    $('.btnSlideNav').on('click', function (e) {
       e.preventDefault();
       if (sideNavTl.began) {
         sideNavTl.reverse();

@@ -1,11 +1,11 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode } from 'react';
 
 export interface IIntroProps {
   title: string;
   children: ReactNode;
 }
 
-const Intro: React.FC<IIntroProps> = (props) => {
+const Intro: React.FC<IIntroProps> = props => {
   const { title, children } = props;
   return (
     <div className="pb-0 pb-sm-2">

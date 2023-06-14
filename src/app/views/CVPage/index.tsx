@@ -1,44 +1,44 @@
-import { useEffect, useState } from "react";
-import { FaFileAlt, FaImages, FaUser } from "react-icons/fa";
-import { FiCodesandbox } from "react-icons/fi";
-import { Route, Routes, useNavigate } from "react-router";
+import { useEffect, useState } from 'react';
+import { FaFileAlt, FaImages, FaUser } from 'react-icons/fa';
+import { FiCodesandbox } from 'react-icons/fi';
+import { Route, Routes, useNavigate } from 'react-router';
 
-import { INavItem } from "app/components/base/NavItem";
-import ContentWraper from "app/components/layout/ContentWraper";
-import Footer from "app/components/includes/Footer";
-import Header from "app/components/includes/Header";
-import Sidebar from "app/components/includes/Sidebar";
+import { INavItem } from 'app/components/base/NavItem';
+import ContentWraper from 'app/components/layout/ContentWraper';
+import Footer from 'app/components/includes/Footer';
+import Header from 'app/components/includes/Header';
+import Sidebar from 'app/components/includes/Sidebar';
 
-import About from "./About";
-import Resume from "./Resume";
-import Projects from "./Projects";
-import Photo from "./Photo";
+import About from './About';
+import Resume from './Resume';
+import Projects from './Projects';
+import Photo from './Photo';
 
 const CVPage: React.FC = () => {
-  const [currSelect, setCurrSelect] = useState<string>("1");
+  const [currSelect, setCurrSelect] = useState<string>('1');
 
   const navigate = useNavigate();
 
   let navItemList = [
     {
-      id: "1",
+      id: '1',
       icon: <FaUser size={32} />,
-      label: "about",
+      label: 'about',
     },
     {
-      id: "2",
+      id: '2',
       icon: <FaFileAlt size={32} />,
-      label: "resume",
+      label: 'resume',
     },
     {
-      id: "3",
+      id: '3',
       icon: <FiCodesandbox size={32} />,
-      label: "projects",
+      label: 'projects',
     },
     {
-      id: "4",
+      id: '4',
       icon: <FaImages size={32} />,
-      label: "photo",
+      label: 'photo',
     },
     // {
     //     id: '5',
@@ -49,11 +49,11 @@ const CVPage: React.FC = () => {
 
   const handleMenuClick = (currItem: INavItem) => {
     setCurrSelect(currItem.id);
-    navigate("/" + currItem.label);
+    navigate('/' + currItem.label);
   };
 
   useEffect(() => {
-    navigate("/about");
+    navigate('/about');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

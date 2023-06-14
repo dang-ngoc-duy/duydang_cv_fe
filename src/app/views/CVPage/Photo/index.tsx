@@ -1,4 +1,4 @@
-import Intro from "app/components/layout/Intro";
+import Intro from 'app/components/layout/Intro';
 
 const Photo: React.FC = () => {
   return (

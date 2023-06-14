@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode } from 'react';
 
 export interface TimelineItem {
   title: string;
@@ -12,7 +12,7 @@ export interface ITimeLineProps {
   timeLineItems: TimelineItem[];
 }
 
-const TimeLine: React.FC<ITimeLineProps> = (props) => {
+const TimeLine: React.FC<ITimeLineProps> = props => {
   const { title, icon, timeLineItems } = props;
 
   return (

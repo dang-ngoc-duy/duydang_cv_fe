@@ -1,17 +1,17 @@
-import { PayloadAction } from "@reduxjs/toolkit";
-import { IApiResponse } from "app/types/api";
-import { ZingDataAudio } from "app/types/ZingDataAudio";
-import { call, put, takeEvery } from "redux-saga/effects";
+import { PayloadAction } from '@reduxjs/toolkit';
+import { IApiResponse } from 'app/types/api';
+import { ZingDataAudio } from 'app/types/ZingDataAudio';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import {
   fetchZingDataAudio,
   fetchZingDataAudioFailure,
   fetchZingDataAudioSuccess,
-} from "./action";
-import { fetchZingDtaAudio } from "./api";
+} from './action';
+import { fetchZingDtaAudio } from './api';
 
 function* handleFetchZingDataAudio(action: PayloadAction<string>) {
   console.log(
-    "🍌 ~ file: saga.tsx ~ line 9 ~ function*handleFetchZingDataAudio ~ action",
+    '🍌 ~ file: saga.tsx ~ line 9 ~ function*handleFetchZingDataAudio ~ action',
     action
   );
   try {
@@ -19,7 +19,7 @@ function* handleFetchZingDataAudio(action: PayloadAction<string>) {
       fetchZingDtaAudio,
       action.payload
     );
-    console.log("🍌 ~ DataAudio~ reponse", reponse);
+    console.log('🍌 ~ DataAudio~ reponse', reponse);
     if (reponse.success) {
       yield put(fetchZingDataAudioSuccess(reponse.data as ZingDataAudio));
     } else {

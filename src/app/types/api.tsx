@@ -57,7 +57,7 @@ export type IResponsePagination<T, P = undefined> = Promise<
   IResponseResult<T, P>
 >;
 
-export type TAuthHeader = "Bearer" | "Basic";
+export type TAuthHeader = 'Bearer' | 'Basic';
 export interface IStoreModel<T> {
   fetched: boolean;
   fetching: boolean;

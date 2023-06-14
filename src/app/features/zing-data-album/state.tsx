@@ -1,4 +1,4 @@
-import { ZingDataAlbumState } from "app/types/ZingDataAlbum";
+import { ZingDataAlbumState } from 'app/types/ZingDataAlbum';
 
 export const initialState: ZingDataAlbumState = {
   fetching: false,
@@ -8,17 +8,17 @@ export const initialState: ZingDataAlbumState = {
       items: [],
       is_vip: false,
       info: {
-        id: "",
-        link: "",
-        title: "",
-        name: "",
+        id: '',
+        link: '',
+        title: '',
+        name: '',
         isoffical: false,
-        artists_names: "",
+        artists_names: '',
         artists: [],
-        thumbnail: "",
-        thumbnail_medium: "",
+        thumbnail: '',
+        thumbnail_medium: '',
       },
-      ip: "",
+      ip: '',
     },
   },
   error: [],

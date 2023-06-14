@@ -33,7 +33,7 @@ a.underlineNone {
 }
 @media only screen and (max-width: 992px) {
   .header-half-demo::before {
-    content: "";
+    content: '';
     background: #15232e;
     height: 50vh;
     position: absolute;
@@ -162,10 +162,10 @@ a.underlineNone {
   z-index: 1010;
 }
 .slideOpen::before {
-  background-image: url("iconSideMenu.svg");
+  background-image: url('iconSideMenu.svg');
   background-position: center;
   background-size: 36%;
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -177,7 +177,7 @@ a.underlineNone {
 }
 
 .slideClose {
-  background-image: url("iconClose.svg");
+  background-image: url('iconClose.svg');
   top: 1.5rem;
   left: 400px;
   width: 30px;

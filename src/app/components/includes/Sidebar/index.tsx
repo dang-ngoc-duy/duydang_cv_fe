@@ -1,11 +1,11 @@
-import NavItem, { INavItem } from "app/components/base/NavItem";
+import NavItem, { INavItem } from 'app/components/base/NavItem';
 export interface ISidebarProps {
   activeId?: string;
   navItemList?: INavItem[];
   onMenuClick?(currItem: INavItem): void;
 }
 
-const Sidebar: React.FC<ISidebarProps> = (props) => {
+const Sidebar: React.FC<ISidebarProps> = props => {
   const { activeId, navItemList, onMenuClick } = props;
 
   return (
@@ -15,7 +15,7 @@ const Sidebar: React.FC<ISidebarProps> = (props) => {
           {navItemList?.map((item, idx) => (
             <NavItem
               key={idx}
-              activeId={activeId ? activeId : "1"}
+              activeId={activeId ? activeId : '1'}
               navItem={item}
               onClick={onMenuClick}
             />
